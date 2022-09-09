@@ -1,8 +1,6 @@
 package UserLists;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Class that creates an ordered list of user-input values.
@@ -40,18 +38,42 @@ public class UserList implements UserLists{
         setUserListItems(userListItems);
     }
 
+    //Methods
     @Override
-    public UserListItem addUserListItem(int itemPosition, String itemDescription) {
-        return null;
+    public void addUserListItem(int position, UserListItem newUserListItem) {
+        if(userListItemExists(position) == true){
+            UserListItem tempUserListItem = userListItems.get(position);
+            userListItems.replace(position, newUserListItem);
+            addUserListItem(position++, tempUserListItem);
+        } else {
+            userListItems.put(position, newUserListItem);
+        }
     }
 
     @Override
     public void removeUserListItem(int itemPosition) {
-
+        if(userListItemExists(itemPosition) == true){
+            userListItems.remove(itemPosition);
+        } else {
+            System.out.println("No list item at position " + itemPosition);
+        }
     }
 
     @Override
     public void displayUserList() {
+        String userListItemString = "";
+        for(int position : userListItems.keySet()){
+            userListItemString = userListItems.get(position).toString();
+            System.out.println(position + ": " + userListItemString);
+        }
+    }
 
+    /**
+     * Check if an item exists on the UserList at the given position
+     * @param position Position in the UserList to check.
+     * @return True: item exits at that position. False: item does not exist at that position.
+     */
+    private boolean userListItemExists(int position){
+        return userListItems.containsKey(position);
     }
 }
