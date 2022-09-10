@@ -48,8 +48,9 @@ public class UserList implements UserLists{
         if(userListItemExists(position) == true){
             UserListItem tempUserListItem = userListItems.get(position);
             userListItems.replace(position, newUserListItem);
-            //TODO diagnose overflow error; likely due to iteration issue
-            addUserListItem(position++, tempUserListItem);
+            //TODO: iteration cannot pass a new argument to the parent method
+            int replacePosition = position++;
+            addUserListItem(replacePosition, tempUserListItem);
         } else {
             userListItems.put(position, newUserListItem);
         }
