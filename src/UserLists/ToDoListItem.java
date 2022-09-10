@@ -27,4 +27,9 @@ public class ToDoListItem extends UserListItem{
         super(toDoDescription);
         setDueDate(dueDate);
     }
+
+    @Override
+    public String toString() {
+        return getItemDescription() + " (Due on " + dueDate + ")";
+    }
 }

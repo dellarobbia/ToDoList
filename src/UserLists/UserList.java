@@ -1,5 +1,7 @@
 package UserLists;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 /**
@@ -62,7 +64,10 @@ public class UserList implements UserLists{
     @Override
     public void displayUserList() {
         String userListItemString = "";
-        for(int position : userListItems.keySet()){
+        ArrayList<Integer> sortedKeyList = (ArrayList<Integer>) userListItems.keySet();
+        Collections.sort(sortedKeyList);
+
+        for(int position : sortedKeyList){
             userListItemString = userListItems.get(position).toString();
             System.out.println(position + ": " + userListItemString);
         }
