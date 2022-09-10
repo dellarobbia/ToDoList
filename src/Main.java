@@ -12,17 +12,19 @@ public class Main {
 
     public static void main(String[] args){
         InputPrompt mainMenu = new InputPrompt(
-                "Please select an option: \n" +
-                        "\t1: View To-Do List\n" +
-                        "\t2: Add Item to To-Do List\n" +
-                        "\t3: Remove Item from To-Do List\n" +
-                        "\t4: Exit Program\n");
+                """
+                   Please select an option:\s
+                        1: View To-Do List
+                        2: Add Item to To-Do List
+                        3: Remove Item from To-Do List
+                        4: Exit Program
+                        """);
 
         boolean finished = false;
 
         do{
             mainMenu.displayPrompt();
-            selection = Integer.valueOf(mainMenu.getUserInput());
+            selection = Integer.parseInt(mainMenu.getUserInput());
             switch (selection){
                 case 1:
                     if(userList.getUserListItems().size() > 0) {
@@ -47,7 +49,7 @@ public class Main {
                 default:
                     System.out.println("Invalid selection.");
             }
-        }while(finished == false);
+        }while(!finished);
     }
 
     /**
@@ -81,7 +83,7 @@ public class Main {
 
         //Display prompts needed to get input for the new To-Do list item
         addItemPositionPrompt.displayPrompt();
-        toDoItemPosition = Integer.valueOf(addItemPositionPrompt.getUserInput());
+        toDoItemPosition = Integer.parseInt(addItemPositionPrompt.getUserInput());
 
         addItemDescriptionPrompt.displayPrompt();
         toDoItemDescription = addItemDescriptionPrompt.getUserInput();
@@ -98,10 +100,12 @@ public class Main {
         //Prompts
         InputPrompt removeItemPositionPrompt = new InputPrompt(
                 "Which item will be removed?");
-        InputPrompt removeitemConfirmationPrompt = new InputPrompt(
-                "Please confirm the removal:\n" +
-                "\t1: Yes\n" +
-                "\t2: No\n");
+        InputPrompt removeItemConfirmationPrompt = new InputPrompt(
+                """
+                    Please confirm the removal:
+                        1: Yes
+                        2: No
+                        """);
 
         int confirmSelection;
         int positionSelection;
@@ -109,22 +113,21 @@ public class Main {
 
         do{
             removeItemPositionPrompt.displayPrompt();
-            positionSelection = Integer.valueOf(removeItemPositionPrompt.getUserInput());
+            positionSelection = Integer.parseInt(removeItemPositionPrompt.getUserInput());
 
-            removeitemConfirmationPrompt.displayPrompt();
-            confirmSelection = Integer.valueOf(removeitemConfirmationPrompt.getUserInput());
-            switch(confirmSelection){
-                case 1:
+            removeItemConfirmationPrompt.displayPrompt();
+            confirmSelection = Integer.parseInt(removeItemConfirmationPrompt.getUserInput());
+            switch (confirmSelection) {
+                case 1 -> {
                     userList.removeUserListItem(positionSelection);
                     finished = true;
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     System.out.println("Removal canceled. Returning to main menu...");
                     finished = true;
-                    break;
-                default:
-                    System.out.println("Invalid selection");
+                }
+                default -> System.out.println("Invalid selection");
             }
-        } while(finished == false);
+        } while(!finished);
     }
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Class that creates an ordered list of user-input values.
@@ -47,6 +48,7 @@ public class UserList implements UserLists{
         if(userListItemExists(position) == true){
             UserListItem tempUserListItem = userListItems.get(position);
             userListItems.replace(position, newUserListItem);
+            //TODO diagnose overflow error; likely due to iteration issue
             addUserListItem(position++, tempUserListItem);
         } else {
             userListItems.put(position, newUserListItem);
@@ -65,8 +67,7 @@ public class UserList implements UserLists{
     @Override
     public void displayUserList() {
         String userListItemString = "";
-        List<Integer> sortedKeyList = userListItems.keySet().stream().toList();
-        Collections.sort(sortedKeyList);
+        List<Integer> sortedKeyList = userListItems.keySet().stream().sorted().collect(Collectors.toList());
 
         for(int position : sortedKeyList){
             userListItemString = userListItems.get(position).toString();
