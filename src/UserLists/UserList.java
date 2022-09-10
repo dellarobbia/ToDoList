@@ -3,6 +3,7 @@ package UserLists;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Class that creates an ordered list of user-input values.
@@ -64,7 +65,7 @@ public class UserList implements UserLists{
     @Override
     public void displayUserList() {
         String userListItemString = "";
-        ArrayList<Integer> sortedKeyList = (ArrayList<Integer>) userListItems.keySet();
+        List<Integer> sortedKeyList = userListItems.keySet().stream().toList();
         Collections.sort(sortedKeyList);
 
         for(int position : sortedKeyList){

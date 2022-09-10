@@ -25,13 +25,21 @@ public class Main {
             selection = Integer.valueOf(mainMenu.getUserInput());
             switch (selection){
                 case 1:
-                    userList.displayUserList();
+                    if(userList.getUserListItems().size() > 0) {
+                        userList.displayUserList();
+                    } else {
+                        System.out.println("No to-do items to view.");
+                    }
                     break;
                 case 2:
                     addUserItemMenu();
                     break;
                 case 3:
-                    removeItemMenu();
+                    if(userList.getUserListItems().size() > 0) {
+                        removeItemMenu();
+                    } else {
+                        System.out.println("No to-do items to remove.");
+                    }
                     break;
                 case 4:
                     finished = true;
@@ -65,7 +73,11 @@ public class Main {
         String toDoItemDueDate;
 
         //Display the current to-do list so the user can see its current state
-        userList.displayUserList();
+        if (userList.getUserListItems().size() > 0) {
+            userList.displayUserList();
+        } else {
+            System.out.println("No to-do items.");
+        }
 
         //Display prompts needed to get input for the new To-Do list item
         addItemPositionPrompt.displayPrompt();

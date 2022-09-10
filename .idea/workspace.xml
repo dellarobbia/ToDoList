@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bc0e4636-9264-49fd-b6ed-1c380043be43" name="Changes" comment="First runnable build complete.">
+    <list default="true" id="bc0e4636-9264-49fd-b6ed-1c380043be43" name="Changes" comment="Added sorting function when displaying the to-do list">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserLists/ToDoListItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserLists/ToDoListItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserLists/UserList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserLists/UserList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +68,8 @@
       <workItem from="1662688410099" duration="4329000" />
       <workItem from="1662694374554" duration="771000" />
       <workItem from="1662741830772" duration="7047000" />
-      <workItem from="1662817409657" duration="727000" />
+      <workItem from="1662817409657" duration="1020000" />
+      <workItem from="1662827298627" duration="336000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1662692936036</created>
@@ -84,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662767073467</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added sorting function when displaying the to-do list">
+      <created>1662818176122</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1662818176122</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,6 +112,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
     <MESSAGE value="UserLists package completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="UserLists package completed" />
+    <MESSAGE value="Added sorting function when displaying the to-do list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added sorting function when displaying the to-do list" />
   </component>
 </project>
